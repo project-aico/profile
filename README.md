@@ -13,8 +13,8 @@ Usage: ./profile <the path to the image>
 
 - The original image:
 
-    ![The original image](./images/opening.jpg "original")
+    ![The original image](./examples/vinyl-gopher.jpg "original")
 
 - The image rendered in the terminal:
 
-    ![The rendered image](./examples/screenshot_wsl.png "rendered")
+    ![The rendered image](./examples/screenshot_pwsh.png "rendered")
