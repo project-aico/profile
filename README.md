@@ -1,5 +1,9 @@
 # Profile
 
+[![GitHub Actions Workflow Status](https://github.com/project-aico/profile/actions/workflows/release.yml/badge.svg)](https://github.com/project-aico/profile/blob/main/.github/workflows/release.yml)
+[![GitHub last commit](https://img.shields.io/github/last-commit/project-aico/profile)](https://github.com/project-aico/profile/commits/main/)
+[![GitHub License](https://img.shields.io/github/license/project-aico/profile)](https://github.com/project-aico/profile/blob/main/LICENSE)
+
 A Go CLI tool that renders images directly in the terminal with 256-color ANSI codes.
 
 ## Usage
