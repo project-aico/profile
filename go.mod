@@ -1,7 +1,3 @@
-module profile
+module github.com/project-aico/profile
 
-go 1.25.0
-
-require golang.org/x/term v0.15.0
-
-require golang.org/x/sys v0.15.0 // indirect
+go 1.25.6
