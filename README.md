@@ -50,7 +50,7 @@ Flags:
 
   ![The original image](./examples/vinyl-gopher.jpg "original")
 
-- The image rendered in the terminal:
+- The rendered image:
 
   ![The rendered image](./examples/rendered.jpg "rendered")
 
