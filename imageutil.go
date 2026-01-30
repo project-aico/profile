@@ -1,28 +1,37 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"image/jpeg"
 	"image/png"
 	"io"
+	"os"
+	"path/filepath"
+	"strings"
 )
 
-// decode the image
+// decodeImage handles decoding PNG and JPEG
 func decodeImage(r io.Reader) (image.Image, error) {
 	img, _, err := image.Decode(r)
-	if err == nil {
-		return img, nil
+	return img, err
+}
+
+// saveImage saves the resulting image as PNG or JPEG
+func saveImage(path string, img image.Image) error {
+	f, err := os.Create(path)
+	if err != nil {
+		return err
 	}
-	if seeker, ok := r.(io.ReadSeeker); ok {
-		seeker.Seek(0, io.SeekStart)
-		if img, err := png.Decode(seeker); err == nil {
-			return img, nil
-		}
-		seeker.Seek(0, io.SeekStart)
-		if img, err := jpeg.Decode(seeker); err == nil {
-			return img, nil
-		}
+	defer f.Close()
+
+	ext := strings.ToLower(filepath.Ext(path))
+	switch ext {
+	case ".jpg", ".jpeg":
+		return jpeg.Encode(f, img, &jpeg.Options{Quality: 95})
+	case ".png":
+		return png.Encode(f, img)
+	default:
+		// Default to PNG if unknown
+		return png.Encode(f, img)
 	}
-	return nil, fmt.Errorf("unsupported image format or decoding failure: %v", err)
 }
